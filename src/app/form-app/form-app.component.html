@@ -1,0 +1,40 @@
+<section class="page-section">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">DEMO APP WITH DATA</h2>
+        <br />
+        <div></div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">Application sending message true <strong>API</strong>. Message with local
+                server time is saved to
+                <strong>LiteDB</strong>. Saved time, and original message is pushed back, by <strong>SignalR</strong>
+                service. And that is all.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label></label>
+                        <div #messageArea style="overflow: auto; height: 200px; border: 1px; border-style: solid; border-color: black;">
+                            <ng-template ngFor let-item [ngForOf]="data">
+                                <div>
+                                    <span>
+                                        {{item.CreatedDate | date:'HH:mm:ss dd.MM.yyyy'}} : {{item.MessageText}}
+                                    </span>
+                                </div>
+                            </ng-template>
+                        </div>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Message" [(ngModel)]="messageText">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary btn-xl" type="button" (click)="sendClientMessage()">send
+                                message</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
